@@ -2,11 +2,19 @@
   <el-card class="box-card">
     <div slot="header" class="clearfix">
       <template>
-          <span v-if="result">{{ result }}</span>
-          <el-button v-else
-            type="primary"
-            :loading="loading"
-            @click.stop="getTea">选择奶茶</el-button>
+        <template v-if="result">
+          <span>{{ result }}</span>
+            <el-button
+              type="primary"
+              :loading="loading"
+              @click.stop="getTea">重新选择</el-button>
+        </template>
+          <template v-else>
+            <el-button
+              type="primary"
+              :loading="loading"
+              @click.stop="getTea">选择奶茶</el-button>
+          </template>
       </template>
       <el-dropdown style="float: right"
         @command="handleCommand">
